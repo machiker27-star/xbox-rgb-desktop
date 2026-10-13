@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xbox RGB Desktop</title>
+<style>
+:root{--cyan:#58e7ff;--purple:#a879ff;--glass:rgba(16,19,38,.72);--line:rgba(255,255,255,.16)}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;font-family:"Segoe UI",Arial,sans-serif;color:#fff;overflow:hidden}
+body{background:#090b18}
+.wallpaper{position:fixed;inset:0;overflow:hidden;background:radial-gradient(ellipse at 72% 45%,rgba(69,52,158,.7),transparent 32%),radial-gradient(ellipse at 28% 65%,rgba(0,185,224,.26),transparent 35%),linear-gradient(135deg,#070a16 0%,#15102d 52%,#071b2a 100%)}
+.wallpaper:before{content:"";position:absolute;width:75vw;height:75vw;max-width:900px;max-height:900px;left:50%;top:46%;transform:translate(-50%,-50%) rotate(-25deg);border-radius:45%;border:2px solid rgba(88,231,255,.18);box-shadow:0 0 80px rgba(88,231,255,.12),inset 0 0 100px rgba(168,121,255,.1);background:linear-gradient(125deg,transparent 20%,rgba(88,231,255,.07) 45%,rgba(168,121,255,.12) 60%,transparent 80%)}
+.wallpaper:after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 25%,rgba(255,255,255,.035) 45%,transparent 62%);pointer-events:none}
+.desktop{position:relative;height:100%;padding:24px 28px 90px}
+.brand{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#a9bedb;margin-bottom:12px}
+h1{font-size:clamp(28px,4vw,48px);font-weight:300;margin:0;letter-spacing:-1.5px}
+h1 span{font-weight:650;background:linear-gradient(90deg,var(--cyan),#fff,var(--purple));background-clip:text;color:transparent}
+.subtitle{color:#b6c4dc;font-size:14px;margin-top:8px}
+.widgets{position:absolute;right:28px;top:28px;display:flex;gap:12px}
+.widget{min-width:130px;padding:14px 17px;border:1px solid var(--line);background:var(--glass);border-radius:17px;backdrop-filter:blur(16px);box-shadow:0 10px 35px #0003}
+.widget .label{font-size:10px;letter-spacing:2px;color:#a9b6d4;text-transform:uppercase}
+#clock{font-size:27px;font-weight:300;margin-top:4px}
+#date{font-size:12px;color:#b8c6dd;margin-top:2px}
+.apps{display:grid;grid-template-columns:repeat(2,100px);gap:22px 18px;margin-top:58px;width:max-content}
+.app{width:100px;min-height:105px;border:1px solid transparent;border-radius:16px;text-decoration:none;color:white;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:10px 5px;gap:9px;transition:.15s;background:transparent}
+.app:hover,.app:focus{outline:none;background:rgba(255,255,255,.1);border-color:rgba(88,231,255,.45);transform:translateY(-2px)}
+.icon{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-size:26px;font-weight:700;box-shadow:0 8px 22px #0004;border:1px solid #ffffff2a}
+.youtube{background:linear-gradient(145deg,#ff4545,#a90024)}.google{background:linear-gradient(145deg,#f4f7ff,#dbe6ff);color:#4285f4}.photopea{background:linear-gradient(145deg,#344d76,#111c36);color:#8deeff}.games{background:linear-gradient(145deg,#3bce82,#087b59)}.xbox{background:linear-gradient(145deg,#78e55e,#15851f)}.web{background:linear-gradient(145deg,#9b6bff,#4e38ad)}
+.app span:last-child{font-size:12px;text-align:center;text-shadow:0 2px 6px #000}
+.tip{position:absolute;left:28px;bottom:86px;color:#b4c6df;font-size:12px;letter-spacing:.2px}
+.taskbar{position:absolute;left:50%;bottom:15px;transform:translateX(-50%);width:min(760px,calc(100% - 26px));height:62px;border-radius:20px;border:1px solid rgba(255,255,255,.18);background:rgba(12,15,30,.78);backdrop-filter:blur(22px);box-shadow:0 12px 45px #0008;display:flex;align-items:center;justify-content:center;gap:8px;padding:8px}
+.task{width:43px;height:43px;border:1px solid transparent;border-radius:12px;background:transparent;color:white;font-size:21px;display:grid;place-items:center;text-decoration:none;cursor:pointer}
+.task:hover,.task:focus{outline:none;background:#ffffff19;border-color:#58e7ff55}
+.start{background:linear-gradient(135deg,#42dfff,#9a7cff);color:#101329;font-weight:900}
+.taskhint{position:absolute;right:16px;bottom:36px;color:#a7b4ce;font-size:11px}
+@media(max-width:650px){.desktop{padding:20px 16px 90px}.widgets{top:18px;right:16px}.widget{min-width:100px;padding:10px}.widget .label{font-size:9px}#clock{font-size:22px}.apps{margin-top:110px;grid-template-columns:repeat(2,82px);gap:12px}.app{width:82px}.icon{width:48px;height:48px}.tip{left:16px;bottom:88px;max-width:58%;line-height:1.5}.taskhint{display:none}}
+</style>
+</head>
+<body>
+<div class="wallpaper"></div>
+<main class="desktop">
+  <div class="brand">XBOX SERIES X · PERSONAL DESKTOP</div>
+  <h1>Welcome <span>back.</span></h1>
+  <div class="subtitle">Tu espacio RGB · morado + cian</div>
+  <section class="widgets">
+    <div class="widget"><div class="label">Hora local</div><div id="clock">--:--</div><div id="date">Cargando fecha…</div></div>
+  </section>
+  <nav class="apps" aria-label="Aplicaciones">
+    <a class="app" href="https://www.youtube.com/" target="_blank" rel="noopener"><span class="icon youtube">▶</span><span>YouTube</span></a>
+    <a class="app" href="https://www.google.com/" target="_blank" rel="noopener"><span class="icon google">G</span><span>Google</span></a>
+    <a class="app" href="https://www.photopea.com/" target="_blank" rel="noopener"><span class="icon photopea">P</span><span>Photopea</span></a>
+    <a class="app" href="https://www.xbox.com/play" target="_blank" rel="noopener"><span class="icon games">🎮</span><span>Cloud Gaming</span></a>
+    <a class="app" href="https://www.xbox.com/" target="_blank" rel="noopener"><span class="icon xbox">✕</span><span>Xbox.com</span></a>
+    <a class="app" href="https://www.microsoft.com/" target="_blank" rel="noopener"><span class="icon web">⊞</span><span>Microsoft</span></a>
+  </nav>
+  <div class="tip">TIP: selecciona un icono para abrir la página.<br>Esto es un escritorio web, no Windows real.</div>
+  <div class="taskhint">DESKTOP SIMULADO</div>
+  <nav class="taskbar" aria-label="Barra de tareas simulada">
+    <a class="task start" href="https://www.xbox.com/" title="Inicio">⊞</a>
+    <a class="task" href="https://www.google.com/" title="Buscar">⌕</a>
+    <a class="task" href="https://www.youtube.com/" title="YouTube">▶</a>
+    <a class="task" href="https://www.photopea.com/" title="Photopea">P</a>
+    <a class="task" href="https://www.xbox.com/play" title="Juegos">🎮</a>
+  </nav>
+</main>
+<script>
+function updateClock(){
+ const now=new Date();
+ document.getElementById('clock').textContent=now.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+ document.getElementById('date').textContent=now.toLocaleDateString('es-US',{weekday:'short',month:'short',day:'numeric'});
+}
+updateClock(); setInterval(updateClock,1000);
+</script>
+</body>
+</html>
